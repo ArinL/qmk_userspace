@@ -25,6 +25,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define FORCE_NKRO                                            // Force n-key rollover
 
+// #undef TAP_CODE_DELAY
+// #define TAP_CODE_DELAY 0
+
 #define DEBOUNCE 8                                            // Set keyboard debounce time (originally 5ms, now 8ms to combat touchy switches)
 
 #ifdef COMMAND_ENABLE

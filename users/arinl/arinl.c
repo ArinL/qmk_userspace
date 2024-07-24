@@ -109,7 +109,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
         break;
 
     case KC_A:
-        is_left_pressed= record->event.pressed;
+        is_left_pressed = record->event.pressed;
         break;
     case KC_D:
         is_right_pressed = record->event.pressed;
@@ -122,17 +122,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
          if (record -> event.pressed) {
             if (is_right_pressed || is_left_pressed) {
                 if (is_left_pressed) {
-                    SEND_STRING(SS_UP(X_A) SS_DELAY(18) SS_DOWN(X_S) SS_DELAY(18) SS_DOWN(X_A) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18) SS_UP(X_A) SS_DELAY(40) SS_DOWN(X_S) SS_DELAY(18) SS_DOWN(X_A) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18));
+                    SEND_STRING_DELAY(SS_UP(X_A) SS_DOWN(X_S) SS_DOWN(X_A) SS_UP(X_S) SS_UP(X_A) SS_DOWN(X_S) SS_DOWN(X_A) SS_UP(X_S), 18);
                 }
                 if (is_right_pressed) {
-                    SEND_STRING(SS_UP(X_D) SS_DELAY(18) SS_DOWN(X_S) SS_DELAY(18) SS_DOWN(X_D) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18) SS_UP(X_D) SS_DELAY(40) SS_DOWN(X_S) SS_DELAY(18) SS_DOWN(X_D) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18));
+                    SEND_STRING_DELAY(SS_UP(X_D) SS_DOWN(X_S) SS_DOWN(X_D) SS_UP(X_S) SS_UP(X_D) SS_DOWN(X_S) SS_DOWN(X_D) SS_UP(X_S), 18);
                 }
                 if (!(mod_state & MOD_MASK_SHIFT)) {
-                    SEND_STRING(SS_DOWN(X_J) SS_DELAY(18) SS_UP(X_J));
+                    SEND_STRING_DELAY(SS_DOWN(X_J) SS_UP(X_J), 18);
                 }
-                SEND_STRING(SS_DOWN(X_I) SS_DELAY(18) SS_UP(X_I));
+                SEND_STRING_DELAY(SS_DOWN(X_I) SS_UP(X_I), 18);
                 if ((mod_state & MOD_MASK_SHIFT)) {
-                    SEND_STRING(SS_DOWN(X_K) SS_DELAY(18) SS_UP(X_K)); 
+                    SEND_STRING_DELAY(SS_DOWN(X_K) SS_UP(X_K), 18);
                 }
             } else {
                 register_code(KC_COMM);
@@ -144,20 +144,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
          if (record -> event.pressed) {
             if (is_right_pressed || is_left_pressed) {
                 if (is_left_pressed) {
-                    SEND_STRING(SS_DOWN(X_S) SS_DELAY(18) SS_UP(X_A) SS_DELAY(18) SS_DOWN(X_D) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18) SS_UP(X_D) SS_DELAY(18) SS_DOWN(X_A) SS_DELAY(18));
+                    SEND_STRING_DELAY(SS_DOWN(X_S) SS_UP(X_A) SS_DOWN(X_D) SS_UP(X_S) SS_UP(X_D) SS_DOWN(X_A), 18);
                 }
                 if (is_right_pressed) { 
-                    SEND_STRING(SS_DOWN(X_S) SS_DELAY(18) SS_UP(X_D) SS_DELAY(18) SS_DOWN(X_A) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18) SS_UP(X_A) SS_DELAY(18) SS_DOWN(X_D) SS_DELAY(18));
+                    SEND_STRING_DELAY(SS_DOWN(X_S) SS_UP(X_D) SS_DOWN(X_A) SS_UP(X_S) SS_UP(X_A) SS_DOWN(X_D), 18);
                 }
                 if (!(mod_state & MOD_MASK_SHIFT)) {
-                    SEND_STRING(SS_DOWN(X_J) SS_DELAY(18) SS_UP(X_J));
+                    SEND_STRING_DELAY(SS_DOWN(X_J) SS_UP(X_J), 18);
                 }
-                SEND_STRING(SS_DOWN(X_L) SS_DELAY(18) SS_UP(X_L));
+                SEND_STRING_DELAY(SS_DOWN(X_L) SS_UP(X_L), 18);
                 if ((mod_state & MOD_MASK_SHIFT)) {
-                    SEND_STRING(SS_DOWN(X_K) SS_DELAY(18) SS_UP(X_K));
+                    SEND_STRING_DELAY(SS_DOWN(X_K) SS_UP(X_K), 18);
                 }
                 if (is_down_pressed) {
-                    SEND_STRING(SS_DOWN(X_S));
+                    SEND_STRING_DELAY(SS_DOWN(X_S), 18);
                 }
             } else {
                 register_code(KC_N);
@@ -169,19 +169,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
         if (record -> event.pressed) {
             if (is_right_pressed || is_left_pressed) {
                 if (is_left_pressed) {
-                    SEND_STRING(SS_DOWN(X_S) SS_DELAY(18) SS_UP(X_A) SS_DELAY(18) SS_DOWN(X_D) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18) SS_UP(X_D) SS_DELAY(18) SS_DOWN(X_A) SS_DELAY(18));
+                    SEND_STRING_DELAY(SS_DOWN(X_S) SS_UP(X_A) SS_DOWN(X_D) SS_UP(X_S) SS_UP(X_D) SS_DOWN(X_A), 18);
                 }
                 if (is_right_pressed) { 
-                    SEND_STRING(SS_DOWN(X_S) SS_DELAY(18) SS_UP(X_D) SS_DELAY(18) SS_DOWN(X_A) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18) SS_UP(X_A) SS_DELAY(18) SS_DOWN(X_D) SS_DELAY(18));
+                    SEND_STRING_DELAY(SS_DOWN(X_S) SS_UP(X_D) SS_DOWN(X_A) SS_UP(X_S) SS_UP(X_A) SS_DOWN(X_D), 18);
                 }
                 if (!(mod_state & MOD_MASK_SHIFT)) { //shift is not pressed
                     del_mods(MOD_MASK_SHIFT);
-                    SEND_STRING(SS_DOWN(X_J) SS_DELAY(18)); 
+                    SEND_STRING_DELAY(SS_DOWN(X_J), 18);
                     set_mods(mod_state);
                 }
-                SEND_STRING(SS_DOWN(X_K) SS_DELAY(18) SS_UP(X_J) SS_UP(X_K));
+                SEND_STRING_DELAY(SS_DOWN(X_K) SS_UP(X_J) SS_UP(X_K), 18);
                 if (is_down_pressed) {
-                    SEND_STRING(SS_DOWN(X_S));
+                    SEND_STRING_DELAY(SS_DOWN(X_S), 18);
                 }
             } else {
                 register_code(KC_M);
@@ -194,13 +194,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
             // if ((mod_state & MOD_MASK_SHIFT) && (is_right_pressed || is_left_pressed)) {
             if (is_right_pressed || is_left_pressed) {
                 if (is_left_pressed) {
-                    SEND_STRING(SS_DOWN(X_S) SS_DELAY(18) SS_UP(X_A) SS_DELAY(18) SS_DOWN(X_D) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18) SS_UP(X_D) SS_DELAY(18) SS_DOWN(X_A) SS_DELAY(18));
+                    SEND_STRING_DELAY(SS_DOWN(X_S) SS_UP(X_A) SS_DOWN(X_D) SS_UP(X_S) SS_UP(X_D) SS_DOWN(X_A), 18);
                 }
                 if (is_right_pressed) { 
-                    SEND_STRING(SS_DOWN(X_S) SS_DELAY(18) SS_UP(X_D) SS_DELAY(18) SS_DOWN(X_A) SS_DELAY(18) SS_UP(X_S) SS_DELAY(18) SS_UP(X_A) SS_DELAY(18) SS_DOWN(X_D) SS_DELAY(18));
+                    SEND_STRING_DELAY(SS_DOWN(X_S) SS_UP(X_D) SS_DOWN(X_A) SS_UP(X_S) SS_UP(X_A) SS_DOWN(X_D), 18);
                 }
                 if (is_right_pressed || is_left_pressed) {
-                    SEND_STRING(SS_DOWN(X_J) SS_DELAY(18) SS_DOWN(X_I) SS_DELAY(18) SS_UP(X_J) SS_UP(X_I));
+                    SEND_STRING_DELAY(SS_DOWN(X_J) SS_DOWN(X_I) SS_UP(X_J) SS_UP(X_I), 18);
                 }
             } else {
                 register_code(KC_U);
